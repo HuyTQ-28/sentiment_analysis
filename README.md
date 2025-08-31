@@ -1,5 +1,10 @@
 # Sentiment Analysis with LoRA-Finetuned BERT
 
+[![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-orange.svg)](https://pytorch.org/)
+[![Framework: Streamlit](https://img.shields.io/badge/Framework-Streamlit-cyan.svg)](https://streamlit.io/)
+
 ## Overview
 
 This project is a sentiment analysis system designed to identify and categorize emotions from English text. The model is fine-tuned using the LoRA (Low-Rank Adaptation) technique on a pre-trained BERT-base-uncased model. The application provides a user-friendly interface built with Streamlit for real-time sentiment prediction.
@@ -128,3 +133,7 @@ You can train the model either locally or using Modal for cloud-based training. 
   ```bash
   modal run modal_train.py
   ```
+
+## 📄 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more details
