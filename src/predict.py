@@ -3,6 +3,7 @@ import torch
 import pandas as pd
 
 from sklearn.metrics import classification_report
+from src.preprocess import clean_text
 
 def predict_on_test_set(model, tokenizer, config):
     """Đánh giá mô hình trên toàn bộ tập dữ liệu test."""
@@ -43,11 +44,15 @@ def predict_single_sentence(model, tokenizer, config, text):
     """Dự đoán cảm xúc cho một câu văn đơn lẻ."""
     id2label = config["id2label"]
     device = config["device"]
+
+    # Làm sạch văn bản đầu vào
+    cleaned_text = clean_text(text)
+
     model.to(device)
     model.eval()
 
     with torch.no_grad():
-        inputs = tokenizer(text, return_tensors="pt", max_length=config["max_seq_length"], padding="max_length", truncation=True)
+        inputs = tokenizer(cleaned_text, return_tensors="pt", max_length=config["max_seq_length"], padding="max_length", truncation=True)
         inputs = {k: v.to(device) for k, v in inputs.items()}
         
         outputs = model(**inputs)

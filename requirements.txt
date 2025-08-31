@@ -9,3 +9,4 @@ emoji
 accelerate
 bitsandbytes
 tensorboard
+streamlit
